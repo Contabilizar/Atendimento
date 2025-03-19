@@ -1,0 +1,55 @@
+[
+  {
+    "empresa": "TRANSMECA TRANSPORTES RODOVIÁRIOS LTDA",
+    "departamentos": [
+      {
+        "name": "Departamento Fiscal",
+        "person": "Jaqueline Zanatta",
+        "email": "fiscal@contabilizarcontabil.com",
+        "phone": "(66) 3544-5981",
+        "icon": "fa-file-invoice-dollar",
+        "photo": "Jaqueline.jpg"
+      },
+      {
+        "name": "Departamento Pessoal",
+        "person": "Hudson Leite",
+        "email": "pessoal@contabilizarcontabil.com",
+        "phone": "(66) 3544-5981",
+        "icon": "fa-users",
+        "photo": "Hudson.jpg"
+      },
+      {
+        "name": "Departamento Contábil",
+        "person": "Diego Lamonica",
+        "email": "contabil@contabilizarcontabil.com",
+        "phone": "(66) 3544-5981",
+        "icon": "fa-calculator",
+        "photo": "Diego.jpg"
+      },
+      {
+        "name": "Departamento Financeiro",
+        "person": "Jessica Santos",
+        "email": "financeiro@contabilizarcontabil.com",
+        "phone": "(66) 3544-5981",
+        "icon": "fa-money-bill-wave",
+        "photo": "Jessicasantos.jpg"
+      },
+      {
+        "name": "Departamento Paralegal",
+        "person": "Julio Dill",
+        "email": "paralegal@contabilizarcontabil.com",
+        "phone": "(66) 3544-5981",
+        "icon": "fa-balance-scale",
+        "photo": "Julio.jpg"
+      },
+      {
+        "name": "Recepcionista",
+        "person": "Maria Randon",
+        "email": "atendimento@contabilizarcontabil.com",
+        "phone": "(66) 3544-5981",
+        "icon": "fa-concierge-bell",
+        "photo": "Maria.jpg"
+      }
+    ]
+  }
+]

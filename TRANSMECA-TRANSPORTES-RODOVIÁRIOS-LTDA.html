@@ -1,0 +1,190 @@
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>TRANSMECA TRANSPORTES RODOVIÁRIOS LTDA - Contabilizar</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+      
+<style>
+  :root {
+    --primary: #000051;
+    --secondary: #e5e5e5;
+    --bg-light: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --spacing-unit: 1rem;
+    --border-radius: 1.5rem;
+    --header-height: 80px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--primary); line-height: 1.6; padding-top: var(--header-height); }
+  .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--primary); min-height: var(--header-height); border-bottom: 2px solid var(--bg-light); box-shadow: var(--shadow); display: flex; align-items: center; }
+  .header-content { max-width: 1200px; margin: 0 auto; padding: 0 calc(var(--spacing-unit) * 1); display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .logo { max-height: 60px; width: auto; object-fit: contain; }
+  .container { max-width: 1200px; margin: 0 auto; padding: calc(var(--spacing-unit) * 4); }
+  .title { font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: calc(var(--spacing-unit) * 1); background: linear-gradient(90deg, var(--primary), #003087); -webkit-background-clip: text; color: transparent; }
+  .subtitle { font-size: 1.25rem; text-align: center; color: #4b5563; margin-bottom: calc(var(--spacing-unit) * 3); }
+  .departments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: calc(var(--spacing-unit) * 2); }
+  .card { position: relative; width: 100%; height: 350px; perspective: 1000px; }
+  .card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+  .card:hover .card-inner { transform: rotateY(180deg); }
+  .card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; padding: calc(var(--spacing-unit) * 2); background: var(--bg-light); border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; }
+  .card-back { transform: rotateY(180deg); background: var(--primary); color: #ffffff; display: flex; flex-direction: column; justify-content: center; }
+  .card-front .photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto calc(var(--spacing-unit) * 1); display: block; border: 3px solid var(--primary); }
+  .card-front h2 { font-size: 1.2rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+  .card-front .person { font-size: 1.25rem; color: #4b5563; margin-bottom: calc(var(--spacing-unit) * 0.5); }
+  .card-front .contact, .card-back .contact { font-size: 0.9rem; margin: calc(var(--spacing-unit) * 0.5) 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+  .card-front .contact a { color: #6b7280; text-decoration: none; }
+  .card-front .contact a:hover { color: var(--primary); }
+  .card-back .contact a { color: #ffffff; text-decoration: none; }
+  .card-back .contact a:hover { text-decoration: underline; }
+  .card-back .description { font-size: 0.9rem; margin: calc(var(--spacing-unit) * 1) 0; padding: 0 calc(var(--spacing-unit) * 1); }
+  .download-btn { padding: 0.5rem 1rem; background: #ffffff; color: var(--primary); text-decoration: none; border-radius: 0.5rem; font-size: 0.9rem; text-align: center; cursor: pointer; border: 2px solid #ffffff; transition: var(--transition); }
+  .download-btn:hover { background: var(--primary); color: #ffffff; border-color: #ffffff; }
+  .footer { text-align: center; font-size: 0.9rem; color: #6b7280; padding: calc(var(--spacing-unit) * 1); margin-top: calc(var(--spacing-unit) * 3); }
+</style>
+
+    </head>
+    <body>
+      <header class="header">
+        <div class="header-content">
+          <img src="logo.png" alt="Logo Contabilizar" class="logo" />
+          <button class="download-btn" onclick="downloadShortcut()">
+            <i class="fas fa-download"></i> Download
+          </button>
+        </div>
+      </header>
+      <div class="container">
+        <h1 class="title">Bem-vindo(a) ao Escritório Contabilizar</h1>
+        <p class="subtitle">Segue abaixo o contato dos atendentes para TRANSMECA TRANSPORTES RODOVIÁRIOS LTDA.</p>
+        <section class="departments-grid">
+          
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="Jaqueline.jpg" alt="Foto de Jaqueline Zanatta" class="photo">
+                <h2><i class="fas fa-file-invoice-dollar"></i> Departamento Fiscal</h2>
+                <p class="person">Jaqueline Zanatta</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:fiscal@contabilizarcontabil.com">fiscal@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+              <div class="card-back">
+                <p class="description">Departamento encarregado do cálculo de impostos e entrega de declarações fiscais, suporte na emissão de notas fiscais e garantia de conformidade com as normas tributárias vigentes.</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:fiscal@contabilizarcontabil.com">fiscal@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="Hudson.jpg" alt="Foto de Hudson Leite" class="photo">
+                <h2><i class="fas fa-users"></i> Departamento Pessoal</h2>
+                <p class="person">Hudson Leite</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:pessoal@contabilizarcontabil.com">pessoal@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+              <div class="card-back">
+                <p class="description">Departamento responsável pela gestão das rotinas trabalhistas, incluem mas não se limita a admissão e demissão de funcionários, processamento da folha de pagamento, cálculo de encargos sociais, apuração de impostos como FGTS, INSS e IRRF, e atendimento às obrigações acessórias.</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:pessoal@contabilizarcontabil.com">pessoal@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="Diego.jpg" alt="Foto de Diego Lamonica" class="photo">
+                <h2><i class="fas fa-calculator"></i> Departamento Contábil</h2>
+                <p class="person">Diego Lamonica</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:contabil@contabilizarcontabil.com">contabil@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+              <div class="card-back">
+                <p class="description">Departamento responsável por manter a contabilidade atualizada, elaborar balanços patrimoniais e produzir relatórios financeiros detalhados para suporte à gestão.</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:contabil@contabilizarcontabil.com">contabil@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="Jessicasantos.jpg" alt="Foto de Jessica Santos" class="photo">
+                <h2><i class="fas fa-money-bill-wave"></i> Departamento Financeiro</h2>
+                <p class="person">Jessica Santos</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:financeiro@contabilizarcontabil.com">financeiro@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+              <div class="card-back">
+                <p class="description">Departamento dedicado ao envio de honorários, assegurando a comunicação eficiente e o cumprimento pontual das obrigações financeiras com os clientes.</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:financeiro@contabilizarcontabil.com">financeiro@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="Julio.jpg" alt="Foto de Julio Dill" class="photo">
+                <h2><i class="fas fa-balance-scale"></i> Departamento Paralegal</h2>
+                <p class="person">Julio Dill</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:paralegal@contabilizarcontabil.com">paralegal@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+              <div class="card-back">
+                <p class="description">Departamento responsável por gerenciar processos legais, viabilizando o funcionamento da empresa por meio de alvarás municipais, licenças dos bombeiros e outros documentos necessários.</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:paralegal@contabilizarcontabil.com">paralegal@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="Maria.jpg" alt="Foto de Maria Randon" class="photo">
+                <h2><i class="fas fa-concierge-bell"></i> Recepcionista</h2>
+                <p class="person">Maria Randon</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:atendimento@contabilizarcontabil.com">atendimento@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+              <div class="card-back">
+                <p class="description">Responsável por acolher os clientes, coordenar atendimentos e realizar agendamentos com organização e cordialidade.</p>
+                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:atendimento@contabilizarcontabil.com">atendimento@contabilizarcontabil.com</a></p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/556635445981" target="_blank">(66) 3544-5981</a></p>
+              </div>
+            </div>
+          </div>
+        
+        </section>
+      </div>
+      <footer class="footer">
+        <p>© 2025 Contabilizar. Todos os direitos reservados.</p>
+      </footer>
+      
+    <script>
+      function downloadShortcut() {
+        const rawUrl = "https://wawatn.github.io/contabilizar-site/TRANSMECA-TRANSPORTES-RODOVIÁRIOS-LTDA.html";
+        const encodedUrl = encodeURI(rawUrl); // Codifica a URL corretamente
+        const urlContent = `[InternetShortcut]\nURL=${encodedUrl}\nIconFile=https://wawatn.github.io/contabilizar-site/favicon.ico\nIconIndex=0`;
+        const blob = new Blob([urlContent], { type: 'text/plain' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'TRANSMECA TRANSPORTES RODOVIÁRIOS LTDA - Contabilizar.url';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
+    
+    </body>
+    </html>
+    
