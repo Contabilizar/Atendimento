@@ -26,7 +26,7 @@ css = '''
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--primary); line-height: 1.6; padding-top: var(--header-height); }
   .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--primary); min-height: var(--header-height); border-bottom: 2px solid var(--bg-light); box-shadow: var(--shadow); display: flex; align-items: center; }
-  .header-content { max-width: 1200px; margin: 0 auto; padding: 0 calc(var(--spacing-unit) * 1); display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .header-content { max-width: 1200px; margin: 0 auto; padding: 0 calc(var(--spacing-unit) * 1); display: flex; align-items: center; justify-content: center; width: 100%; }
   .logo { max-height: 60px; width: auto; object-fit: contain; }
   .container { max-width: 1200px; margin: 0 auto; padding: calc(var(--spacing-unit) * 4); }
   .title { font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: calc(var(--spacing-unit) * 1); background: linear-gradient(90deg, var(--primary), #003087); -webkit-background-clip: text; color: transparent; }
@@ -41,13 +41,10 @@ css = '''
   .card-front h2 { font-size: 1.2rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
   .card-front .person { font-size: 1.25rem; color: #4b5563; margin-bottom: calc(var(--spacing-unit) * 0.5); }
   .card-front .contact, .card-back .contact { font-size: 0.9rem; margin: calc(var(--spacing-unit) * 0.5) 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-  .card-front .contact a { color: #6b7280; text-decoration: none; }
-  .card-front .contact a:hover { color: var(--primary); }
+  .card-front .contact { color: #6b7280; } /* Apenas texto na frente, sem link */
   .card-back .contact a { color: #ffffff; text-decoration: none; }
   .card-back .contact a:hover { text-decoration: underline; }
   .card-back .description { font-size: 0.9rem; margin: calc(var(--spacing-unit) * 1) 0; padding: 0 calc(var(--spacing-unit) * 1); }
-  .download-btn { padding: 0.5rem 1rem; background: #ffffff; color: var(--primary); text-decoration: none; border-radius: 0.5rem; font-size: 0.9rem; text-align: center; cursor: pointer; border: 2px solid #ffffff; transition: var(--transition); }
-  .download-btn:hover { background: var(--primary); color: #ffffff; border-color: #ffffff; }
   .footer { text-align: center; font-size: 0.9rem; color: #6b7280; padding: calc(var(--spacing-unit) * 1); margin-top: calc(var(--spacing-unit) * 3); }
 </style>
 '''
@@ -57,7 +54,7 @@ def sanitize_filename(name):
     name = re.sub(r'[<>:"/\\|?*\n\r]', '', name)  # Remove caracteres inválidos
     name = name.strip()  # Remove espaços extras
     name = re.sub(r'\s+', '-', name)  # Substitui espaços por hífens
-    return name[:100]  # Sem codificação aqui, deixamos para o JavaScript
+    return name[:100]
 
 # Descrições e ícones dos departamentos
 department_descriptions = {
@@ -88,8 +85,8 @@ for company in companies:
                 <img src="{photo_src}" alt="Foto de {dept['person']}" class="photo">
                 <h2><i class="fas {icon}"></i> {dept['name']}</h2>
                 <p class="person">{dept['person']}</p>
-                <p class="contact"><i class="fas fa-envelope"></i> <a href="mailto:{dept['email']}">{dept['email']}</a></p>
-                <p class="contact"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/55{whatsapp_number}" target="_blank">{dept['phone']}</a></p>
+                <p class="contact"><i class="fas fa-envelope"></i> {dept['email']}</p>
+                <p class="contact"><i class="fab fa-whatsapp"></i> {dept['phone']}</p>
               </div>
               <div class="card-back">
                 <p class="description">{description}</p>
@@ -100,27 +97,9 @@ for company in companies:
           </div>
         '''
 
-    # URL da página da empresa
+    # URL da página da empresa (sem uso agora, mas mantida por consistência)
     company_filename = sanitize_filename(company["empresa"])
-    company_url = f"https://wawatn.github.io/contabilizar-site/{company_filename}.html"
-
-    # JavaScript para gerar e baixar o .url com ícone predefinido
-    js_script = f'''
-    <script>
-      function downloadShortcut() {{
-        const rawUrl = "https://wawatn.github.io/contabilizar-site/{company_filename}.html";
-        const encodedUrl = encodeURI(rawUrl); // Codifica a URL corretamente
-        const urlContent = `[InternetShortcut]\\nURL=${{encodedUrl}}\\nIconFile=https://wawatn.github.io/contabilizar-site/favicon.ico\\nIconIndex=0`;
-        const blob = new Blob([urlContent], {{ type: 'text/plain' }});
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = '{company["empresa"]} - Contabilizar.url';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }}
-    </script>
-    '''
+    company_url = f"https://contabilizar.github.io/Atendimento/{company_filename}.html"
 
     html = f'''
     <!DOCTYPE html>
@@ -128,7 +107,7 @@ for company in companies:
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>{company["empresa"]} - Contabilizar</title>
+      <title>{company["empresa"]} - Atendimento</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
       {css}
@@ -137,13 +116,10 @@ for company in companies:
       <header class="header">
         <div class="header-content">
           <img src="logo.png" alt="Logo Contabilizar" class="logo" />
-          <button class="download-btn" onclick="downloadShortcut()">
-            <i class="fas fa-download"></i> Download
-          </button>
         </div>
       </header>
       <div class="container">
-        <h1 class="title">Bem-vindo(a) ao Escritório Contabilizar</h1>
+        <h1 class="title">Bem-vindo(a) ao Atendimento Contabilizar</h1>
         <p class="subtitle">Segue abaixo o contato dos atendentes para {company["empresa"]}.</p>
         <section class="departments-grid">
           {departments_html}
@@ -152,7 +128,6 @@ for company in companies:
       <footer class="footer">
         <p>© 2025 Contabilizar. Todos os direitos reservados.</p>
       </footer>
-      {js_script}
     </body>
     </html>
     '''
